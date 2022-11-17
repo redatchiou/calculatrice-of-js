@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            text-align: center;
+            background-color: aliceblue;
+            font-weight: 1000;
+            font-size: 30px;
+        }
+        td:hover{
+            color: aliceblue;
+            background-color: black;
+            opacity: .9;
+        }
+        #table{
+            text-align: center;
+            margin-top: 100px;
+        }
+        
+    </style>
+</head>
+<body>
+    <table border="1" id="table" width="50%" cellpadding="10" cellspacing="5" align="center">
+        <tr>
+            <td colspan="4" style="height: 20px;" id="total"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>/</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>*</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td colspan="2">0</td>
+            <td>.</td>
+            <td>+</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="egal">=</td>
+            <td colspan="2" id="clear">C</td>
+        </tr>
+    </table>
+    <script>
+        let car = ''
+        for (let index = 1; index < table.rows.length-1; index++) {
+            const  row = table.rows[index];
+            for (let index = 0; index < row.cells.length; index++) {
+                const cell = row.cells[index];
+                cell.onclick = function () {
+                    car += this.textContent
+                    total.textContent =  car
+                }
+            }
+           
+        }
+        clear.onclick = function () {
+            car = ''
+            total.textContent = ''
+        }
+        egal.onclick = function () {
+            total.textContent =  eval(car)
+        }
+    </script>
+</body>
+</html>
